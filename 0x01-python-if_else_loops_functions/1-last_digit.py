@@ -2,7 +2,7 @@
 import random
 number = random.randint(-10000, 10000)
 
-x = number % 10
+x = abs(number) % 10
 
 if x > 5:
     message = "and is greater than 5"
