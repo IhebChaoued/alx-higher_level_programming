@@ -2,6 +2,4 @@
 for i in range(1, 10):
     for j in range(i + 1, 10):
         if i != j:
-            if i != 0 and j != 1:
-                print(", ", end="")
-            print("{:d}{:d}".format(i, j), end="")
+            print("{:02d}, ".format(int(str(i) + str(j))), end="")
