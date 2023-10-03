@@ -1,43 +1,28 @@
 #include "lists.h"
-
 /**
- * insert_node - Inserts a number into a sorted singly linked list.
- * @head: Pointer to a pointer to the head of the list.
- * @number: The value to insert.
+ * check_cycle - Checks if a singly linked list has a cycle in it.
+ * @list: Pointer to the head of the list.
  *
- * Return: The address of the new node, or NULL if it fails.
+ * Return: 0 if there is no cycle, 1 if there is a cycle.
  */
-listint_t *insert_node(listint_t **head, int number)
+int check_cycle(listint_t *list)
 {
-	listint_t *new_node, *current, *prev;
+	listint_t *slow, *fast;
 
-	new_node = malloc(sizeof(listint_t));
-	if (!new_node)
-		return (NULL);
+	if (!list)
+		return (0);
 
-	new_node->n = number;
-	new_node->next = NULL;
+	slow = list;
+	fast = list;
 
-	current = *head;
-	prev = NULL;
-
-	while (current != NULL && current->n < number)
+	while (fast != NULL && fast->next != NULL)
 	{
-		prev = current;
-		current = current->next;
+		slow = slow->next;
+		fast = fast->next->next;
+
+		if (slow == fast)
+			return (1);
 	}
 
-	if (prev == NULL)
-	{
-		new_node->next = *head;
-		*head = new_node;
-	}
-	else
-	{
-		prev->next = new_node;
-		new_node->next = current;
-	}
-
-	return (new_node);
+	return (0);
 }
-
