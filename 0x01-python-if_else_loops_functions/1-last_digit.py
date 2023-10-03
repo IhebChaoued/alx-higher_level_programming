@@ -11,4 +11,4 @@ elif x == 0:
 elif x < 6 and x !=0:
     message = "is less than 6 and not 0"
 
-print(f"Last digit of {number} is {x} and {message}")
+print(f"last digit of {number} is {x} and {message}")
