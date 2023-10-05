@@ -6,7 +6,7 @@ if __name__ == "__main__":
 
     if num == 0:
         print("0 arguments.")
-    elif:
+    else:
         print("{} argument{}:".format(num, 's' if num > 1 else ''))
 
     for i, arg in enumerate(argv[1:], start=1):
