@@ -4,12 +4,10 @@ if __name__ == "__main__":
 
     num = len(argv) - 1
 
-    if num == 0:
+    if num_args == 0:
         print("0 arguments.")
-    elif num == 1:
-        print ("1 argument.")
     else:
-        print("{} arguments:".format(num))
+        print("{} argument{}:".format(num_args, 's' if num_args > 1 else ''))
 
-        for i in range(count):
-            print("{}: {}".format(i + 1, argv[i + 1]))
+    for i, arg in enumerate(argv[1:], start=1):
+        print("{}: {}".format(i, arg))
