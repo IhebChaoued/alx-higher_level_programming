@@ -5,5 +5,6 @@ for line in matrix:
             print("{:d}".format(j))
         else:
             print("{:d} ".format(j), end="")
-    if not matrix:
-        print()
+
+if not matrix:
+    print()
