@@ -4,12 +4,14 @@
 
 class Square:
     """check"""
-    def __init(self, size=0):
+    def __init__(self, size=0):
         self.__size = size
 
+    @property
     def size(self):
         return self.__size
 
+    @size.setter
     def size(self, value):
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
@@ -21,8 +23,9 @@ class Square:
         return self.__size ** 2
 
     def my_print(self):
-        if self.__size == 0:
+        x = self.size
+        if x == 0:
             print()
         else:
-            for i in range(self.__size):
-                print("#" * self.__size)
+            for i in range(x):
+                print("#" * x)
