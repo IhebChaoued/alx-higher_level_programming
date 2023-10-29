@@ -11,6 +11,10 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
+    if not text:
+        print('#')
+        return
+
     new_text = ""
     newline = True
     for char in text:
@@ -22,8 +26,6 @@ def text_indentation(text):
                 continue
             new_text += char
             newline = False
-
-    next_text += '\n'
 
     print(new_text, end='')
 
