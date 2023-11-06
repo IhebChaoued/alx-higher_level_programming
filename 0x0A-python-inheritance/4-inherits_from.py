@@ -3,6 +3,7 @@
 class
 """
 
+
 def inherits_from(obj, a_class):
     """
     determine a class
