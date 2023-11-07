@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """Student class definition"""
 
+
 class Student:
     """A class that defines a student"""
-
     def __init__(self, first_name, last_name, age):
         """Initialize a Student instance"""
         self.first_name = first_name
