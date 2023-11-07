@@ -12,6 +12,7 @@ def print_stats(file_size, status_counts):
         if status_counts[status_code] > 0:
             print("{}: {}".format(status_code, status_counts[status_code]))
 
+
 def main():
     try:
         line_number = 0
