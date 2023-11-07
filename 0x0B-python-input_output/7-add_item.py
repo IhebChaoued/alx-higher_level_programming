@@ -8,14 +8,14 @@ save_to_json_file = __import__("5-save_to_json_file").save_to_json_file
 load_from_json_file = __import__("6-load_from_json_file").load_from_json_file
 
 
-def main():
-    """saving"""
-    filename = "add_item.json"
-    my_list = []
+filename = "add_item.json"
 
-    if os.path.isfile(filename):
-        my_list = load_from_json_file(filename)
+try:
+    json_list = load_from_json_file(filename)
+except FileNotFoundError:
+    json_list = []
 
-    my_list.extend(sys.argv[1:])
+for arg in argv[1:]:
+    json_list.append(arg)
 
-    save_to_json_file(my_list, filename)
+save_to_json_file(json_list, filename)
