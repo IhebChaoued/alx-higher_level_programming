@@ -1,14 +1,19 @@
 #!/usr/bin/python3
-"""Square/Rec"""
+"""
+Square/Rectangle
+"""
 Rectangle = __import__('9-rectangle').Rectangle
 
 
 class Square(Rectangle):
-    """square"""
+    """Square"""
+
     def __init__(self, size):
         """class"""
+        super().integer_validator("size", size)
+        self.__size = size
         super().__init__(size, size)
 
-    def __str__(self):
-        """str"""
-        return "[Square] {}/{}".format(self.__width, self.__height)
+    def area(self):
+        """area"""
+        return super().area()
