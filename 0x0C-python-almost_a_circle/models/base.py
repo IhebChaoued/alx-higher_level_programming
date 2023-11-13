@@ -111,7 +111,9 @@ class Base:
             writer = csv.writer(file)
             if list_objs is not None:
                 for obj in list_objs:
-                    writer.writerow([getattr(obj, attr) for attr in cls.attributes])
+                    writer.writerow(
+                            [getattr(obj, attr) for attr in cls.attributes]
+                            )
 
     @classmethod
     def load_from_file_csv(cls):
@@ -121,12 +123,16 @@ class Base:
             with open(filename, mode="r", encoding="utf-8") as file:
                 reader = csv.reader(file)
                 for row in reader:
-                    args = [int(row[i]) if i != 1 else row[i] for i in range(len(row))]
+                    args = [
+                            int(row[i]) if i != 1 else row[i]
+                            for i in range(len(row))
+                            ]
                     obj = cls.create(*args)
                     list_objs.append(obj)
         except FileNotFoundError:
             pass
         return list_objs
+
 
 class Rectangle(Base):
     """Rectangle class"""
@@ -149,9 +155,9 @@ class Rectangle(Base):
                 'y': self.y
                 }
 
-        class Square(Rectangle):
-            """Square class"""
 
+class Square(Rectangle):
+    """Square class"""
     def __init__(self, size, x=0, y=0, id=None):
         """Initialize a Square instance"""
         super().__init__(size, size, x, y, id)
