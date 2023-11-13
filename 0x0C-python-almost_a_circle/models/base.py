@@ -98,41 +98,6 @@ class Base:
         dummy.update(**dictionary)
         return dummy
 
-    @classmethod
-    def to_json_string(cls, list_objs):
-        if list_objs is None or len(list_objs) == 0:
-            return "[]"
-        return json.dumps([obj.to_dictionary() for obj in list_objs])
-
-    @classmethod
-    def save_to_file_csv(cls, list_objs):
-        filename = "{}.csv".format(cls.__name__)
-        with open(filename, mode="w", newline='', encoding="utf-8") as file:
-            writer = csv.writer(file)
-            if list_objs is not None:
-                for obj in list_objs:
-                    writer.writerow(
-                            [getattr(obj, attr) for attr in cls.attributes]
-                            )
-
-    @classmethod
-    def load_from_file_csv(cls):
-        filename = "{}.csv".format(cls.__name__)
-        list_objs = []
-        try:
-            with open(filename, mode="r", encoding="utf-8") as file:
-                reader = csv.reader(file)
-                for row in reader:
-                    args = [
-                            int(row[i]) if i != 1 else row[i]
-                            for i in range(len(row))
-                            ]
-                    obj = cls.create(*args)
-                    list_objs.append(obj)
-        except FileNotFoundError:
-            pass
-        return list_objs
-
 
 class Rectangle(Base):
     """Rectangle class"""
