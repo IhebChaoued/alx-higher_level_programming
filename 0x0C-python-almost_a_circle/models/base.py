@@ -119,7 +119,6 @@ class Rectangle(Base):
                 'y': self.y
                 }
 
-
         class Square(Rectangle):
             """Square class"""
 
