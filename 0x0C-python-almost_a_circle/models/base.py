@@ -95,6 +95,7 @@ class Base:
             dummy = Square(1)
         else:
             dummy = cls(1)
+
         dummy.update(**dictionary)
         return dummy
 
