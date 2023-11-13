@@ -91,8 +91,8 @@ class Rectangle(Base):
                 self.id, self.__x, self.__y, self.__width, self.__height
                 )
 
-        def to_dictionary(self):
-            """Return the dictionary representation"""
+    def to_dictionary(self):
+        """Return the dictionary representation"""
         return {
                 "id": self.id,
                 "width": self.width,
@@ -101,7 +101,7 @@ class Rectangle(Base):
                 "y": self.y
                 }
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """Update attributes"""
         attrs = ["id", "width", "height", "x", "y"]
         if args:
