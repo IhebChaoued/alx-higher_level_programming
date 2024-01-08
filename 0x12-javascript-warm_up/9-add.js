@@ -5,6 +5,6 @@ const num2 = process.argv[3];
 const result = add(num1, num2);
 
 function add(a, b) {
-	return parseInt(a) + parseInt(b);
+	return parseInt(num1) + parseInt(num2);
 }
 console.log(result || 'NaN');
