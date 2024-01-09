@@ -2,9 +2,6 @@
 
 class Rectangle {
   constructor (w, h) {
-    this.width = 0;
-    this.height = 0;
-
     if (w > 0 && h > 0) {
       this.width = w;
       this.height = h;
@@ -12,22 +9,24 @@ class Rectangle {
   }
 
   print () {
-    for (let i = 0; i < this.height; i++) {
-      let row = '';
-      for (let j = 0; j < this.width; j++) {
-        row += 'X';
+    if (this.width !== undefined && this.height !== undefined) {
+      for (let i = 0; i < this.height; i++) {
+        console.log('X'.repeat(this.width));
       }
-      console.log(row);
     }
   }
 
   rotate () {
-    [this.width, this.height] = [this.height, this.width];
+    if (this.width !== undefined && this.height !== undefined) {
+      [this.width, this.height] = [this.height, this.width];
+    }
   }
 
   double () {
-    this.width *= 2;
-    this.height *= 2;
+    if (this.width !== undefined && this.height !== undefined) {
+      this.width *= 2;
+      this.height *= 2;
+    }
   }
 }
 
