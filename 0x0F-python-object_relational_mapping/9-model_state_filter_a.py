@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Script to list all State objects containing the letter 'a' from the database hbtn_0e_6_usa"""
+"""Script to list all State objects containing the letter 'a'"""
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -26,6 +26,6 @@ if __name__ == "__main__":
               .order_by(State.id)
               .all())
 
-        print("{}: {}".format(state.id, state.name))
+    print("{}: {}".format(state.id, state.name))
 
     session.close()
