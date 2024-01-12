@@ -1,10 +1,11 @@
 #!/usr/bin/python3
-
-
+"""Script to list states from a MySQL database"""
 import sys
 import MySQLdb
 
+
 if __name__ == "__main__":
+    """Main execution block"""
     db = MySQLdb.connect(
             username=sys.arg[1],
             password=sys.arg[2],
