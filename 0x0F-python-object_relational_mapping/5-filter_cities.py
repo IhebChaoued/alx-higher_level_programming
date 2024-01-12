@@ -27,8 +27,7 @@ if __name__ == "__main__":
 
     rows = cursor.fetchall()
 
-    for row in rows:
-        print(row)
+    print(", ".join([city[0] for city in rows]))
 
     cursor.close()
     db.close()
