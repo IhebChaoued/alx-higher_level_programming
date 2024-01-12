@@ -16,17 +16,19 @@ if __name__ == "__main__":
 
     cursor = db.cursor()
 
-    cursor.execute("""
-        SELECT cities.name FROM cities
+    query = """
+        SELECT cities.id, cities.name, states.name FROM cities
         JOIN states ON cities.state_id = states.id
         WHERE states.name = %s
         ORDER BY cities.id ASC
-    """, (sys.argv[4],))
+    """
+
+    cursor.execute(query, (sys.argv[4],))
 
     rows = cursor.fetchall()
 
     for row in rows:
-        print(row[0])
+        print(row)
 
     cursor.close()
     db.close()
