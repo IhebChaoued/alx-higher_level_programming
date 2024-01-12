@@ -12,7 +12,6 @@ if __name__ == "__main__":
                            .format(sys.argv[1], sys.argv[2], sys.argv[3]),
                            pool_pre_ping=True)
 
-    Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
 
@@ -20,5 +19,3 @@ if __name__ == "__main__":
 
     for city in cities:
         print("{}: {} -> {}".format(city.id, city.name, city.state.name))
-
-    session.close()
