@@ -8,22 +8,19 @@ from model_state import Base, State
 
 if __name__ == "__main__":
     """Main execution block"""
-    db = MySQLdb.connect(user=sys.argv[1],
-                         passwd=sys.argv[2],
-                         db=sys.argv[3],
-                         host='localhost',
-                         port=3306)
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
+                           .format(username, password, database),
+                           pool_pre_ping=True)
 
-    cursor = db.cursor()
+    Session = sessionmaker(bind=engine)
 
-    sql = """SELECT * FROM states ORDER BY id ASC LIMIT 1"""
-    cursor.execute(sql)
-    state = cursor.fetchone()
+    session = Session()
+
+    state = session.query(State).order_by(State.id).first()
 
     if state:
-        print("1: {}".format(state[1]))
+        print("{}: {}".format(state.id, state.name))
     else:
         print("Nothing")
 
-    cursor.close()
-    db.close()
+    session.close()
