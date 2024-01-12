@@ -16,13 +16,17 @@ if __name__ == "__main__":
 
     cursor = db.cursor()
 
-    cursor.execute("SELECT GROUP_CONCAT(name SEPARATOR ', ') FROM cities \
-                    JOIN states ON cities.state_id = states.id \
-                    WHERE states.name = %s", (sys.argv[4],))
+    cursor.execute("""
+        SELECT cities.name FROM cities
+        JOIN states ON cities.state_id = states.id
+        WHERE states.name = %s
+        ORDER BY cities.id ASC
+    """, (sys.argv[4],))
 
-    result = cursor.fetchone()
+    rows = cursor.fetchall()
 
-    print(result[0])
+    for row in rows:
+        print(row[0])
 
     cursor.close()
     db.close()
