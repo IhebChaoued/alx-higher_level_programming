@@ -7,8 +7,8 @@ import MySQLdb
 if __name__ == "__main__":
     """Main execution block"""
     db = MySQLdb.connect(
-            username=sys.arg[1],
-            password=sys.arg[2],
+            user=sys.arg[1],
+            passwd=sys.arg[2],
             db=sys.arg[3],
             host="localhost",
             port=3306
