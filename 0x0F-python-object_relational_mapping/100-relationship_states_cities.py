@@ -1,9 +1,5 @@
 #!/usr/bin/python3
-"""
-    A script that creates the State "California" with the City "San Francisco"
-    from the database hbtn_0e_100_usa
-    Username, password and dbname wil be passed as arguments to the script
-"""
+"""Script to create a State with a City in the database"""
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
