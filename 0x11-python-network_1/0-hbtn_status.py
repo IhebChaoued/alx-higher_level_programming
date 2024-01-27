@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """Fetch"""
-
 import urllib.request
 
 
