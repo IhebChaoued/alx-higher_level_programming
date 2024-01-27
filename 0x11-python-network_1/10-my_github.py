@@ -8,5 +8,5 @@ if __name__ == "__main__":
     auth = (argv[1], argv[2])
     response = requests.get(url, auth=auth)
     data = response.json()
-    
+
     print(data.get("id"))
