@@ -1,1 +1,1 @@
-document.head.firstElementChild.style.color = 'red';
+$('header').css('color', '#FF0000');
